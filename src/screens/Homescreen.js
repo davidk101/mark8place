@@ -8,8 +8,9 @@ function Homescreen(){
         <>
             <h1>Latest Products</h1>
             <Row>
+                {/*creating a list*/}
                 {products.map(product =>(
-                    <Col>
+                    <Col key = {product._id}>
                         <Product product = {product} />
                     </Col>
                 ))}
