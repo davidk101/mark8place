@@ -7,7 +7,7 @@ function Footer(){
         <footer>
             <Container>
                 <Row>
-                    <Col>Copyright &copy; mark8place</Col>
+                    <Col>Copyright &copy; mark8place by David Kumar</Col>
                 </Row>
             </Container>
         </footer>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom' // docs: https://reactrouter.com/web/api/Link
 import {Card} from 'react-bootstrap'
 import Rating from './Rating'
 
@@ -6,15 +7,15 @@ import Rating from './Rating'
 function Product({product}){
     return(
         <Card>
-            <a href={'/product/${product._id}'}>
+            <Link to={`/product/${product._id}`}> {/* <Link> wont trigger a full page refresh as react is used for single page applications whereas <a> will*/}
                 <Card.Img src = {product.image} variant = 'top' />
-            </a>
+            </Link>
             <Card.Body>
-                <a href={'/product/${product._id}'}>
+                <Link to={`/product/${product._id}`}>
                     <Card.Title as = 'div'>
                         <strong>{product.name}</strong>
                     </Card.Title>
-                </a>
+                </Link>
 
                 <Card.Text as = 'div' >
                     <Rating value = {product.rating} text = {`${product.numReviews} reviews`} />
