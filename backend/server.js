@@ -1,5 +1,5 @@
 const express = require('express'); // bringing in express.js using common.js
-cosnt products = requrie('./data/products')
+const products = require('./data/products');
 const app = express() // initialize express.js
 
 app.get('/', (req,res) =>{ // triggered when GET request is received

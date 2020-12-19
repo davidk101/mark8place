@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
 import Rating from '../components/Rating'
-import products from "../products";
+import axios from 'axios'
 
 function Productscreen({match}){ {/*destructuring product*/}
-    const product = products.find((p => p._id === match.params.id))/*extracting product clicked*/
+    //const product = products.find((p => p._id === match.params.id))/*extracting product clicked from frontend server*/
+
+    const [product, setProduct] = useState([])
+
+    useEffect(() =>{ // useEffect hook is called after render() i.e. after DOM updates
+        const fetchProduct = async() => {
+            const {data} = await axios.get(`/api/products/${match.params.id}`)// we replace quotes with backticks to access variable
+
+            setProduct(data)
+        }
+        fetchProduct()
+    }, [])
     return <>
         <Link className = 'btn btn-dark my-3' to = '/'>
             Back
