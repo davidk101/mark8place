@@ -16,7 +16,7 @@ function Productscreen({match}){ {/*destructuring product*/}
             setProduct(data)
         }
         fetchProduct()
-    }, [])
+    }, [match])
     return <>
         <Link className = 'btn btn-dark my-3' to = '/'>
             Back
