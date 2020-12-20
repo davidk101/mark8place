@@ -1,5 +1,9 @@
 const express = require('express'); // bringing in express.js using common.js
+const dotenv = require('dotenv');
 const products = require('./data/products');
+
+dotenv.config()
+
 const app = express() // initialize express.js
 
 app.get('/', (req,res) =>{ // triggered when GET request is received
@@ -17,4 +21,6 @@ app.get('/api/products/:id', (req,res) =>{ // triggered when GET request is rece
     res.json(product)
 })
 
-app.listen(5000, console.log('server running on port 5000 '))
+const PORT = process.env.PORT || 5000 // uses PORT 5000 if PORT value not in .env file
+
+app.listen(PORT, console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}` ))
