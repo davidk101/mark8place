@@ -1,6 +1,10 @@
-const express = require('express'); // bringing in express.js using common.js
-const dotenv = require('dotenv');
-const products = require('./data/products');
+import expresss from 'express' // bringing in express.js using ESJS
+import dotenv from 'dotenv'
+import prodcuts from './data/products.js'
+
+//const express = require('express'); // bringing in express.js using common.js
+//const dotenv = require('dotenv');
+//const products = require('./data/products');
 
 dotenv.config()
 
