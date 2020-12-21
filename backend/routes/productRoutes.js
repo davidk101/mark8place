@@ -1,5 +1,5 @@
 import express from 'express'
-import asyncHandler from 'expressAsyncHandler' // npm middleware to handle exceptions
+import asyncHandler from 'express-async-handler' //  middleware to handle exceptions
 const router = express.Router()
 import Product from '../models/productModel.js'
 
@@ -8,7 +8,7 @@ import Product from '../models/productModel.js'
 //@access: public
 
 // GET all products as JSON
-router.get('/', asyncHandler(sync (req,res) =>{ // triggered when GET request is received
+router.get('/', asyncHandler(async (req,res) =>{ // triggered when GET request is received
     const products = await Product.find({}) // passing an empty object in find returns everything
     //Note: all mongoose methods return a promise so 'await' and 'async' methods are required
     res.json(products)

@@ -13,9 +13,9 @@ const productSchema = mongoose.Schema({
 
     user:{
         type: mongoose.Schema.Types.ObjectID, // to know which admin/user referred to which product
-        required: true
+        required: true,
         ref: 'User' // establishes relationship between Product and User
-    }
+    },
     name:{
         type: String,
         required:true

@@ -1,4 +1,4 @@
-import expresss from 'express' // bringing in express.js using ESJS
+import express from 'express' // bringing in express.js using ESJS
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
