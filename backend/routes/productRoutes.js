@@ -26,8 +26,11 @@ router.get('/:id', asyncHandler(async (req,res) =>{ // triggered when GET reques
     if(product){
         res.json(product)
     }
+    // triggered through formatted MongoDB object ID _id but not in the DB
     else{
-        res.status(404).json({message: 'Product not found'})
+        //res.status(404).json({message: 'Product not found'})
+        res.status(404) // else, default to 500 error code
+        throw new Error('Product not found')
     }
 }))
 
