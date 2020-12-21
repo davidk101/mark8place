@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 
+// mongoose model: responsible for creating and reading documents from the underlying MongoDB database i.e. a constructor from the Schema class
 const userSchema = mongoose.Schema({
 
     name:{

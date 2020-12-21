@@ -1,7 +1,7 @@
 import expresss from 'express' // bringing in express.js using ESJS
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
-import prodcuts from './data/products.js'
+import productRoutes from './routes/productRoutes.js'
 
 //const express = require('express'); // bringing in express.js using common.js
 //const dotenv = require('dotenv');
@@ -17,16 +17,7 @@ app.get('/', (req,res) =>{ // triggered when GET request is received
     res.send('API is runnning')
 })
 
-// GET all products as JSON
-app.get('/api/products', (req,res) =>{ // triggered when GET request is received
-    res.json(products)
-})
-
-// GET specific product based on _id as JSON
-app.get('/api/products/:id', (req,res) =>{ // triggered when GET request is received
-    const product = products.find((p) => p._id === req.params.id)
-    res.json(product)
-})
+app.use('/api/products', productRoutes) // anything that goes to the link should point to 'productRoutes'
 
 const PORT = process.env.PORT || 5000 // uses PORT 5000 if PORT value not in .env file
 

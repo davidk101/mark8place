@@ -14,21 +14,21 @@ dotenv.config()
 
 connectDB()
 
-const importData = async() => {
+const importData = async() => { // async since related to DB
     try{
-        await Order.deleteMany() // clearing all collections completely using this mongoose method
+        await Order.deleteMany() // clearing all collections completely using this mongoose method i.e. wipes out DB
         await Product.deleteMany()
         await User.deleteMany()
 
         const createdUsers = await User.insertMany(users)
 
-        const adminUser = createdUsers[0]._id
+        const adminUser = createdUsers[0]._id // first item in users.js
         
-        const sampleProducts = products.map(product => {
-            return {...product, user: adminUser}
+        const sampleProducts = products.map(product => { // adding amdin user to each product
+            return {...product, user: adminUser} // returns all of the data in each product i.e. ...(spread operator) and appending 'user' field
         } )
 
-        await Product.insertMany(sampleProducts)
+        await Product.insertMany(sampleProducts) // now these products are inserted  into DB using mongoose method
 
         console.log('Data imported.')
         
